@@ -11,3 +11,7 @@ Accuracy, precision, recall, and F1-Score were calculated for four kinds of fail
 ![table](./images/table.png)
 ### Web Application:
 As I mentioned, this is a Time-series problem, so it needs 24 records to predict, but this will be very huge information that each user must input for testing the web application. So, we use saved records, including 23 records (TEST size: [23, 14]) and by getting a new record from the user, the time series will be [24, 14] (TEST size: [24, 14]), so model can take this data as a new time series for the model. The video shows that the Web Application works well.
+
+
+https://github.com/ghassemi1/Transformer-Model-Predictive-Maintenance/assets/109998808/bd236d96-2e43-4f73-ac0e-27f8fb7b74a5
+
