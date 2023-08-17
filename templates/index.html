@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <style>
+    /* input[type="text"] {
+      width: 100%;
+      padding: 5px 5px;
+      font-size: 12px;
+    } */
+
+    h2 {
+      text-align: center;
+      font-size: 16px;
+    }
+
+    .column-container {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .column {
+      width: 48%;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="login">
+    <h2>Predict Types of Failure for Machines</h2>
+    <h3> </h3>
+
+    <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}" method="post">
+      <div class="column-container">
+        <div class="column">
+          <input type="text" name="machineID" placeholder="Machine ID (range 1 to 100)" required="required" />
+          <input type="text" name="volt" placeholder="Volt (range 98 to 250)" required="required" />
+          <input type="text" name="rotate" placeholder="Rotate (range 139 to 695)" required="required" />
+          <input type="text" name="pressure" placeholder="Pressure (range 94 to 185)" required="required" />
+          <input type="text" name="vibration" placeholder="Vibration (range 15 to 76)" required="required" />
+          <input type="text" name="error1" placeholder="Error_1 (0 or 1)" required="required" />
+          <input type="text" name="error2" placeholder="Error_2 (0 or 1)" required="required" />
+          <input type="text" name="error3" placeholder="Error_3 (0 or 1)" required="required" />
+        </div>
+        <div class="column">
+
+          <input type="text" name="error4" placeholder="Error_4 (0 or 1)" required="required" />
+          <input type="text" name="error5" placeholder="Error_5 (0 or 1)" required="required" />
+          <input type="text" name="comp1_maint" placeholder="Maintenance Type 1 (0 or 1)" required="required" />
+          <input type="text" name="comp2_maint" placeholder="Maintenance Type 2 (0 or 1)" required="required" />
+          <input type="text" name="comp3_maint" placeholder="Maintenance Type 3 (0 or 1)" required="required" />
+          <input type="text" name="comp4_maint" placeholder="Maintenance Type 4 (0 or 1)" required="required" />
+          <input type="text" name="age" placeholder="Age (0 to 20)" required="required" />
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+    {{ prediction_text }}
+    <br>
+    <br>
+
+  </div>
+
+</body>
+
+</html>
